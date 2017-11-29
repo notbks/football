@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.bks.mapper.PlayerMapper">
+    	<!-- 需要修改 -->
+    	<insert id="add" parameterType="Player">
+    		INSERT INTO player_(password,name,majors,number,position,specialty,isCaptain) VALUES(#{name})
+    	</insert>
+    	
+    	<delete id="delete" parameterType="int">
+    		DELETE FROM palyer_ WHERE sid=#{sid}
+    	</delete>
+    	
+    	<update id="update" parameterType="Player">
+    		UPDATE player_ 
+    		SET name=#{name} 
+    		WHERE sid=#{sid}
+    	</update>
+    	
+    	<select id="findBySid" parameterType="_int" resultType="Player">
+    		SELECT *
+			FROM player_
+			WHERE sid=#{sid}
+    	</select>
+    	<!-- 需要修改 -->
+    	<select id="findAllPlayers" resultType="Player">
+    		SELECT * FROM player_
+    	</select>
+    	
+    	<select id="count" resultType="int">
+    		SELECT COUNT(sid) FROM player_
+    	</select>
+    
+    </mapper>
