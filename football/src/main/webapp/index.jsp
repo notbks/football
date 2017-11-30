@@ -4,9 +4,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
+
+<jsp:include page="login.jsp"></jsp:include>
+<hr/>
+<br/>
+<hr/>
+<br/>
+<hr/>
+<br/>
+<hr/>
+<br/>
 <h2>Hello World!</h2>
 <h3>欢迎登陆哦~~~~~~~~~~~</h3>
 <a href="<c:url value='/showPlayer.jsp'/>">查看sid是030313的运动员</a><br/>
+
+<a href="<c:url value='/login.jsp'/>">login</a><br/>
+<a href="<c:url value='/regist.jsp'/>">regist</a><br/>
 
 <form action="findPlayer" method="post">
 	<input type="text" name="sid">

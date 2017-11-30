@@ -6,7 +6,7 @@ public class Player {
     private String name;
     private int majors;//专业
     private int joinYear;//加入年份
-    private int numbers;//球衣号码
+    private int number;//球衣号码
     private String position;//场上位置
     private String specialty;//特长
     private boolean isCaptain;//是不是队长
@@ -14,7 +14,7 @@ public class Player {
 
 	public String toString() {
 		return "Player [sid=" + sid + ", name=" + name + ", majors=" + majors + ", joinYear=" + joinYear + ", numbers="
-				+ numbers + ", position=" + position + ", specialty=" + specialty + ", isCaptain=" + isCaptain
+				+ number + ", position=" + position + ", specialty=" + specialty + ", isCaptain=" + isCaptain
 				+ ", isManager=" + isManager + "]";
 	}
 
@@ -50,12 +50,12 @@ public class Player {
 		this.majors = majors;
 	}
 
-	public int getNumbers() {
-		return numbers;
+	public int getNumber() {
+		return number;
 	}
 
-	public void setNumbers(int numbers) {
-		this.numbers = numbers;
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 	public String getPosition() {

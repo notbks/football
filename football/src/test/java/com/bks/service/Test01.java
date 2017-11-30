@@ -32,7 +32,7 @@ public class Test01 {
 		p.setJoinYear(2014);
 		p.setMajors(6);
 		p.setName("xihaha");
-		p.setNumbers(475);
+		p.setNumber(475);
 		p.setPassword("123");
 		p.setPosition("前锋");
 		p.setSid(030312);

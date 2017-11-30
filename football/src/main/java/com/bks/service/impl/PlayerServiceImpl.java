@@ -16,7 +16,11 @@ public class PlayerServiceImpl implements PlayerService{
 	PlayerMapper playerMapper;
 
 	public Player findBySid(int sid) {
-		return playerMapper.findBySid(sid);
+		try {
+			return playerMapper.findBySid(sid);
+		}catch(Exception e) {
+			return null;
+		}
 	}
 
 	public void add(Player player) {
@@ -32,11 +36,19 @@ public class PlayerServiceImpl implements PlayerService{
 	}
 
 	public List<Player> findAllPlayers() {
-		return playerMapper.findAllPlayers();
+		try {
+			return playerMapper.findAllPlayers();
+		}catch(Exception e) {
+			return null;
+		}
 	}
 
 	public int count() {
-		return playerMapper.count();
+		try {
+			return playerMapper.count();
+		}catch(Exception e) {
+			return 0;
+		}
 	}
 
 }
