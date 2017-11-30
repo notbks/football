@@ -20,11 +20,11 @@ public class PlayerController {
 	@RequestMapping("/findPlayer")
 	public ModelAndView getAllPlayer(HttpServletRequest request) {
 		
-		System.out.println("controller1");
 		ModelAndView mav =new ModelAndView("showPlayer");
 		String id =request.getParameter("sid");
 		int sid =Integer.valueOf(id);
 		System.out.println("controller2");
+		
 		Player player =playerServiceImpl.findBySid(sid);
 		
 		mav.addObject("player", player);

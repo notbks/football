@@ -1,18 +1,21 @@
 package com.bks.pojo;
 
 public class Player {
-	private int sid;
+	private int sid;//学号前6位不需要
     private String password;
     private String name;
-    private int majors;
-    private int numbers;
-    private String position;
-    private String specialty;
-    private boolean isCaptain;
+    private int majors;//专业
+    private int joinYear;//加入年份
+    private int numbers;//球衣号码
+    private String position;//场上位置
+    private String specialty;//特长
+    private boolean isCaptain;//是不是队长
+    private boolean isManager;//是不是经理
 
 	public String toString() {
-		return "Player [sid=" + sid + ", password=" + password + ", name=" + name + ", majors=" + majors + ", numbers="
-				+ numbers + ", position=" + position + ", specialty=" + specialty + ", isCaptain=" + isCaptain + "]";
+		return "Player [sid=" + sid + ", name=" + name + ", majors=" + majors + ", joinYear=" + joinYear + ", numbers="
+				+ numbers + ", position=" + position + ", specialty=" + specialty + ", isCaptain=" + isCaptain
+				+ ", isManager=" + isManager + "]";
 	}
 
 	public int getSid() {
@@ -78,5 +81,22 @@ public class Player {
 	public void setCaptain(boolean isCaptain) {
 		this.isCaptain = isCaptain;
 	}
+
+	public boolean isManager() {
+		return isManager;
+	}
+
+	public void setManager(boolean isManager) {
+		this.isManager = isManager;
+	}
+
+	public int getJoinYear() {
+		return joinYear;
+	}
+
+	public void setJoinYear(int joinYear) {
+		this.joinYear = joinYear;
+	}
+	
 	
 }

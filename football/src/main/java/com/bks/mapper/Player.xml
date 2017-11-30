@@ -6,7 +6,8 @@
     <mapper namespace="com.bks.mapper.PlayerMapper">
     	<!-- 需要修改 -->
     	<insert id="add" parameterType="Player">
-    		INSERT INTO player_(password,name,majors,number,position,specialty,isCaptain) VALUES(#{name})
+    		INSERT INTO player_(sid,password,name,majors,joinYear,number,position,specialty,isCaptain,isManager) 
+    		VALUES(#{sid},#{password},#{name},#{majors},#{joinYear},#{number},#{position},#{specialty},#{isCaptain},#{isManager})
     	</insert>
     	
     	<delete id="delete" parameterType="int">
@@ -24,7 +25,7 @@
 			FROM player_
 			WHERE sid=#{sid}
     	</select>
-    	<!-- 需要修改 -->
+    	<!-- mybatis自动将结果集映射成List<Player> -->
     	<select id="findAllPlayers" resultType="Player">
     		SELECT * FROM player_
     	</select>

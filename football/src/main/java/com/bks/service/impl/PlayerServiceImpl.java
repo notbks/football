@@ -15,12 +15,28 @@ public class PlayerServiceImpl implements PlayerService{
 	@Autowired
 	PlayerMapper playerMapper;
 
-	public List<Player> list() {
-		return playerMapper.findAllPlayers();
-	}
-	
 	public Player findBySid(int sid) {
 		return playerMapper.findBySid(sid);
+	}
+
+	public void add(Player player) {
+		playerMapper.add(player);
+	}
+
+	public void delete(int sid) {
+		playerMapper.delete(sid);
+	}
+
+	public void update(Player player) {
+		playerMapper.update(player);
+	}
+
+	public List<Player> findAllPlayers() {
+		return playerMapper.findAllPlayers();
+	}
+
+	public int count() {
+		return playerMapper.count();
 	}
 
 }
