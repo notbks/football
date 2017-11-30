@@ -1,7 +1,7 @@
 package com.bks.pojo;
 
 public class Player {
-	private int sid;//学号前6位不需要
+	private String sid;//学号前6位不需要
     private String password;
     private String name;
     private int majors;//专业
@@ -18,11 +18,11 @@ public class Player {
 				+ ", isManager=" + isManager + "]";
 	}
 
-	public int getSid() {
+	public String getSid() {
 		return sid;
 	}
 
-	public void setSid(int sid) {
+	public void setSid(String sid) {
 		this.sid = sid;
 	}
 

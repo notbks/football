@@ -4,9 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 </head>
 <body>
-
+<table>
+	<tr>
+		<th>姓名</th>
+		<th>入队时间</th>
+		<th>球衣号码</th>
+		<th>场上位置</th>
+		<th>特点</th>
+		<th>队长</th>
+		<th>经理</th>
+	</tr>
+</table>
 </body>
 </html>

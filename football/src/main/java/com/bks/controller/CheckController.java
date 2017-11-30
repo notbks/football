@@ -13,14 +13,13 @@ import com.bks.service.impl.PlayerServiceImpl;
 
 @Controller
 @RequestMapping("")
-public class LoginController {
+public class CheckController {
 	@Autowired
 	PlayerServiceImpl playerServiceImpl;
 	
 	@RequestMapping("/checkSid")
 	public void checkSid(HttpServletRequest req, HttpServletResponse res) {
-		String id =req.getParameter("sid");
-		int sid =Integer.valueOf(id);
+		String sid =req.getParameter("sid");
 		if(playerServiceImpl.findBySid(sid) ==null) {
 			try {
 				res.getWriter().print("0");
@@ -30,7 +29,7 @@ public class LoginController {
 			}
 		}else {
 			try {
-				res.getWriter().print("0");
+				res.getWriter().print("1");
 			} catch (IOException e) {
 				System.out.println("被注册且异常了");
 				e.printStackTrace();

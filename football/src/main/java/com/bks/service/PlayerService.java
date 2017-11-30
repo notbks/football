@@ -7,9 +7,9 @@ import com.bks.pojo.Player;
 public interface PlayerService {
 	void add(Player player);  
     
-    void delete(int sid);  
+    void delete(String sid);  
         
-    Player findBySid(int sid);  
+    Player findBySid(String sid);  
       
     void update(Player player);   
         

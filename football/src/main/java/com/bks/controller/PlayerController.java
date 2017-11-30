@@ -26,10 +26,7 @@ public class PlayerController {
 	public ModelAndView getAllPlayer(HttpServletRequest request) {
 		
 		ModelAndView mav =new ModelAndView("regist");
-		String id =request.getParameter("sid");
-		int sid =Integer.valueOf(id);
-		System.out.println("controller2");
-		
+		String sid =request.getParameter("sid");
 		Player player =playerServiceImpl.findBySid(sid);
 		
 		mav.addObject("player", player);
@@ -42,28 +39,28 @@ public class PlayerController {
 		
 		ModelAndView mav =new ModelAndView();
 		
-		int sid =form.getSid();
+		String sid =form.getSid();
 		Player p =playerServiceImpl.findBySid(sid);
-		//判断是否有这个学号
+		//判断是否有这个学号---------------------------------------------------------这里有问题，页面获取不到message
 		if(p==null){
-			String message ="查无此学号";
-			mav.addObject("message", message);
-			System.out.println(message);
+			mav.addObject("message", "查无此学号");
 			mav.setViewName("redirect:/login.jsp");
 			return mav;
 		}
+		System.out.println(p.getPassword()+form.getPassword());
 		//判断密码对不对
-		if(p.getPassword()==form.getPassword() && p.getName()==form.getName()) {
+		if(p.getPassword().equals(form.getPassword())) {
+			//登陆成功
+			mav.addObject(p);
 			mav.setViewName("main");
 			return mav;
-		}else if(p.getPassword()!=form.getPassword()) {
+		}else {
 			String message ="密码错误";
 			System.out.println(message);
 			mav.addObject("message", message);
 			mav.setViewName("redirect:/login.jsp");
 			return mav;
 		}
-		return mav;
 	}
 	
 	@RequestMapping("/registController")
@@ -74,4 +71,11 @@ public class PlayerController {
 		mav.addObject(form);
 		return mav;
 	}
+	
+	@RequestMapping("/infoController")
+	public String updateInfo() {
+		
+		return "info";
+	}
+	
 }

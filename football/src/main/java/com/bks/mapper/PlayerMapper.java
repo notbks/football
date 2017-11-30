@@ -7,9 +7,9 @@ import com.bks.pojo.Player;
 public interface PlayerMapper {
 	public void add(Player player);  
     
-    public void delete(int sid);  
+    public void delete(String sid);  
         
-    public Player findBySid(int sid);  
+    public Player findBySid(String sid);  
       
     public void update(Player player);   
         

@@ -19,7 +19,7 @@
 			//1：得到异步对象
 			var xmlHttp =new XMLHttpRequest();
 			//2：打开连接  中间是请求地址
-			xmlHttp.open("POST", "<c:url value='checkSid'/>", "true");
+			xmlHttp.open("POST", "<c:url value='checkSid'/>", true);
 			//3：设置请求头
 			xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			//4：发送请求，给出请求体
@@ -31,26 +31,26 @@
 				//2：调用完send()方法
 				//3：服务器开始响应 但不代表响应结束
 				//4：服务器相应结束
-				if(xmlHttp.readystate ==4 && xmlHttp.status ==200){//双重判断，服务器相应正常200结束4
+				if(xmlHttp.readyState ==4 && xmlHttp.status ==200){//双重判断，服务器相应正常200结束4
 					//获取返回的值
 					var text =xmlHttp.responseText;
 					//获取span对象
 					var span =document.getElementById("sidspan");
 					if(text =="1"){
-						span.innnerHTML ="已被注册";
+						span.innerHTML ="已被注册";
 					}else{
-						span.innnerHTML ="可以注册";
+						span.innerHTML ="可以注册";
 					}
 				}
-			}
-		}
-	}
+			};
+		};
+	};
 </script>
 <form action="registController" method="post">
 	<table>
 		<tr>
 			<td>学号</td>
-			<td><input type="text" name="sid"><span id="sidspan"></span></td>
+			<td><input type="text" name="sid"><span id="sidspan">...</span></td>
 		</tr>
 		<tr>
 			<td>密码</td>

@@ -7,6 +7,7 @@
 <title>个人信息</title>
 </head>
 <body>
+<jsp:include page="head.jsp"></jsp:include>
 <form action="/infoController" method="post">
 	<table>
 		<tr>

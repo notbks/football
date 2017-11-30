@@ -15,19 +15,15 @@ public class PlayerServiceImpl implements PlayerService{
 	@Autowired
 	PlayerMapper playerMapper;
 
-	public Player findBySid(int sid) {
-		try {
-			return playerMapper.findBySid(sid);
-		}catch(Exception e) {
-			return null;
-		}
+	public Player findBySid(String sid) {
+		return playerMapper.findBySid(sid);
 	}
 
 	public void add(Player player) {
 		playerMapper.add(player);
 	}
 
-	public void delete(int sid) {
+	public void delete(String sid) {
 		playerMapper.delete(sid);
 	}
 

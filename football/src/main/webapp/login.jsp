@@ -11,22 +11,17 @@
 <form action="loginController" method="post">
 	<table>
 		<tr>
-			<td>学号</td>
+			<th>学号</th>
 			<td><input type="text" name="sid"></td>
 		</tr>
 		<tr>
-			<td>密码</td>
+			<th>密码</th>
 			<td><input type="password" name="password"></td>
-		</tr>
-		<tr>
-			<td>姓名</td>
-			<td><input type="password" name="name"></td>
 		</tr>
 	</table>
 	<input type="submit" value="登陆">
-	
+
 </form>
 <a href="<c:url value='/regist.jsp'/>">还没账号？点击注册</a>
-<span>${message}</span>
 </body>
 </html>

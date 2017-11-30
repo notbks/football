@@ -10,22 +10,22 @@
     		VALUES(#{sid},#{password},#{name},#{majors},#{joinYear},#{number},#{position},#{specialty},#{isCaptain},#{isManager})
     	</insert>
     	
-    	<delete id="delete" parameterType="int">
+    	<delete id="delete" parameterType="java.lang.String">
     		DELETE FROM palyer_ WHERE sid=#{sid}
     	</delete>
     	
     	<update id="update" parameterType="Player">
     		UPDATE player_ 
-    		SET name=#{name} 
+    		SET name=#{name},password=#{password},majors=#{majors},joinYear=#{joinYear},number=#{number},position=#{position},specialty=#{specialty},isCaptain=#{isCaptain},isManager=#{isManager}
     		WHERE sid=#{sid}
     	</update>
     	
-    	<select id="findBySid" parameterType="_int" resultType="Player">
+    	<select id="findBySid" parameterType="java.lang.String" resultType="Player">
     		SELECT *
 			FROM player_
 			WHERE sid=#{sid}
     	</select>
-    	<!-- mybatis自动将结果集映射成List<Player> -->
+    	<!-- mybatis自动将 单条 结果集  映射成java对象-->
     	<select id="findAllPlayers" resultType="Player">
     		SELECT * FROM player_
     	</select>
