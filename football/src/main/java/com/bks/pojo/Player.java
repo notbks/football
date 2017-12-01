@@ -9,8 +9,8 @@ public class Player {
     private int number;//球衣号码
     private String position;//场上位置
     private String specialty;//特长
-    private boolean isCaptain;//是不是队长
-    private boolean isManager;//是不是经理
+    private String isCaptain;//是不是队长
+    private String isManager;//是不是经理
 
 	public String toString() {
 		return "Player [sid=" + sid + ", name=" + name + ", majors=" + majors + ", joinYear=" + joinYear + ", numbers="
@@ -74,19 +74,19 @@ public class Player {
 		this.specialty = specialty;
 	}
 
-	public boolean isCaptain() {
+	public String getIsCaptain() {
 		return isCaptain;
 	}
 
-	public void setCaptain(boolean isCaptain) {
+	public void setIsCaptain(String isCaptain) {
 		this.isCaptain = isCaptain;
 	}
 
-	public boolean isManager() {
+	public String getIsManager() {
 		return isManager;
 	}
 
-	public void setManager(boolean isManager) {
+	public void setIsManager(String isManager) {
 		this.isManager = isManager;
 	}
 

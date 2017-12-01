@@ -82,11 +82,11 @@
 		</tr>
 		<tr>
 			<td>队长？</td>
-			<td><input type="checkbox" name="isCaptain">队长</td>
+			<td><input type="text" name="isCaptain">队长</td>
 		</tr>
 		<tr>
 			<td>经理？</td>
-			<td><input type="checkbox" name="isManager">经理</td>
+			<td><input type="text" name="isManager">经理</td>
 		</tr>
 	</table>
 	<input type="submit" value="注册">

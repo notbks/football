@@ -43,7 +43,7 @@ public class PlayerController {
 	 * @throws UnsupportedEncodingException
 	 */
 	@RequestMapping("/loginController")
-	public ModelAndView loginController(Player form) {
+	public ModelAndView loginController(Player form, HttpServletRequest req) {
 		
 		ModelAndView mav =new ModelAndView();
 		
@@ -63,8 +63,9 @@ public class PlayerController {
 		System.out.println(p.getPassword()+form.getPassword());
 		//判断密码对不对
 		if(p.getPassword().equals(form.getPassword())) {
-			//登陆成功
-			mav.addObject(p);
+			//------------------------------------------------------------------登陆成功
+			//mav.addObject("p", p);
+			req.getSession().setAttribute("p", p);
 			mav.setViewName("main");
 			return mav;
 		}else {
@@ -86,10 +87,19 @@ public class PlayerController {
 		return mav;
 	}
 	
-	@RequestMapping("/infoController")
-	public String updateInfo(Player p) {
+	@RequestMapping("/toInfo")
+	public String toInfo(Player p) {
 		System.out.println("daoli");
 		return "info";
 	}
 	
+	
+	@RequestMapping("/infoController")
+	public String updateInfo(Player form, HttpServletRequest req) {
+		playerServiceImpl.update(form);
+		//更新存放到session中的player
+		req.getSession().setAttribute("p", form);
+		
+		return "main";
+	}
 }
