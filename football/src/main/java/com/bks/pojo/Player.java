@@ -3,7 +3,7 @@ package com.bks.pojo;
 public class Player {
 	private String sid;//学号前6位不需要
     private String password;
-    private String name;
+    private String name;//姓名
     private int majors;//专业
     private int joinYear;//加入年份
     private int number;//球衣号码

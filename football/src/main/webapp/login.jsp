@@ -23,5 +23,6 @@
 
 </form>
 <a href="<c:url value='/regist.jsp'/>">还没账号？点击注册</a>
+<span>${message}</span>
 </body>
 </html>

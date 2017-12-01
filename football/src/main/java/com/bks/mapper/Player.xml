@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.bks.mapper.PlayerMapper">
-    	<!-- 需要修改 -->
+    	
     	<insert id="add" parameterType="Player">
     		INSERT INTO player_(sid,password,name,majors,joinYear,number,position,specialty,isCaptain,isManager) 
     		VALUES(#{sid},#{password},#{name},#{majors},#{joinYear},#{number},#{position},#{specialty},#{isCaptain},#{isManager})
