@@ -1,6 +1,7 @@
 package com.bks.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bks.pojo.Player;
 import com.bks.service.impl.PlayerServiceImpl;
+import com.bks.util.PlayerPage;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 /**
  * mav默认转发方式 forword
  * 用重定向redirect：冲破view Resolver舒服
@@ -102,4 +106,28 @@ public class PlayerController {
 		
 		return "main";
 	}
+	
+//	@RequestMapping("/showAllPlayersController")
+//	public String showAllPlayers(Page page) {
+//		
+//		
+//		return "main";
+//	}
+	@RequestMapping("/showAllPlayersController")
+    public ModelAndView showAllPlayers(PlayerPage page){
+        ModelAndView mav = new ModelAndView();
+        PageHelper.offsetPage(page.getStart(),5);
+        List<Player> allPlayers= playerServiceImpl.findAllPlayers();
+        int total = (int) new PageInfo<>(allPlayers).getTotal();
+        //计算最后一页的开始
+        page.caculateLast(total);
+        System.out.println(page.getLast());
+        // 放入转发参数
+        mav.addObject("page", page);
+        mav.addObject("allPlayers", allPlayers);
+        // 放入jsp路径
+        mav.setViewName("main");
+        return mav;
+    }
+	
 }
