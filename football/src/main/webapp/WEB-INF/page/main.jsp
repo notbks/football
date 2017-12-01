@@ -9,9 +9,14 @@
 </head>
 <body>
 <jsp:include page="head.jsp" flush="true"></jsp:include>
-<a href="<c:url value='/showAllPlayersController'/>">showAllPlayers</a>
+<hr/>
 
+<a href="<c:url value='/showAllPlayersController'/>">showAllPlayers</a>
 <jsp:include page="players.jsp" flush="true"></jsp:include>
+<hr/>
+
 <jsp:include page="match.jsp" flush="true"></jsp:include>
+
+
 </body>
 </html>

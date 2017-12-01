@@ -32,11 +32,7 @@ public class PlayerServiceImpl implements PlayerService{
 	}
 
 	public List<Player> findAllPlayers() {
-		try {
 			return playerMapper.findAllPlayers();
-		}catch(Exception e) {
-			return null;
-		}
 	}
 
 	public int count() {
