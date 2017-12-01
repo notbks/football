@@ -27,7 +27,7 @@
      <!-- 创建sqlSession对象
      		扫描存放SQL语句的Player.xml
       -->
-     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+     <bean name="sqlSession" id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="typeAliasesPackage" value="com.bks.pojo"></property>
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="mapperLocations" value="classpath:com/bks/mapper/*.xml"></property>

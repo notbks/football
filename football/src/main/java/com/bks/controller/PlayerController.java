@@ -83,11 +83,10 @@ public class PlayerController {
 	}
 	
 	@RequestMapping("/registController")
-	public ModelAndView regist(Player form) {
+	public ModelAndView regist(Player form, HttpServletRequest req) {
 		ModelAndView mav =new ModelAndView("main");
-		
 		playerServiceImpl.add(form);
-		mav.addObject(form);
+		req.getSession().setAttribute("p", form);
 		return mav;
 	}
 	
