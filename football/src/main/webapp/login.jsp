@@ -12,7 +12,7 @@
 	<table>
 		<tr>
 			<th>学号</th>
-			<td><input type="text" name="sid"></td>
+			<td><input type="text" name="sid" value="${param.sid}"><span>${param.message}</span></td>
 		</tr>
 		<tr>
 			<th>密码</th>
@@ -22,7 +22,7 @@
 	<input type="submit" value="登陆">
 
 </form>
-<a href="<c:url value='/regist.jsp'/>">还没账号？点击注册</a>
-<span>${message}</span>
+<a href="<c:url value='/regist.jsp'/>">还没账号？点击注册</a><br/>
+
 </body>
 </html>

@@ -1,13 +1,13 @@
 package com.bks.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bks.pojo.Player;
 import com.bks.service.impl.PlayerServiceImpl;
@@ -36,12 +36,14 @@ public class PlayerController {
 		return mav;
 	}
 	/**
-	 * redirect:/index这样使message无效
+	 * 重定向：之前的request域失效，使用心得request域
+	 * 转发：之前的，之后的都有效
 	 * @param form
 	 * @return
+	 * @throws UnsupportedEncodingException
 	 */
 	@RequestMapping("/loginController")
-	public ModelAndView loginController(Player form, RedirectAttributes ra, ModelMap mm) {
+	public ModelAndView loginController(Player form) {
 		
 		ModelAndView mav =new ModelAndView();
 		
@@ -50,9 +52,8 @@ public class PlayerController {
 		
 		//判断是否有这个学号
 		if(p==null){
-//			mav.addObject("message", "查无此学号");
-//			System.out.println("没这个学号");
-			mm.addAttribute("message", "查无此学号");
+			mav.addObject("message", "查无此学号");
+			System.out.println("没这个学号");
 			
 			mav.setViewName("redirect:/login.jsp");
 			return mav;
@@ -69,10 +70,8 @@ public class PlayerController {
 		}else {
 			String message ="密码错误";
 			System.out.println(message);
-//			mav.addObject("message", message);
-			ra.addFlashAttribute("sid", p.getSid());
-			ra.addFlashAttribute(message);
-			
+			mav.addObject("message", message);
+			mav.addObject("sid", sid);
 			mav.setViewName("redirect:/login.jsp");
 			return mav;
 		}
@@ -88,8 +87,8 @@ public class PlayerController {
 	}
 	
 	@RequestMapping("/infoController")
-	public String updateInfo() {
-		
+	public String updateInfo(Player p) {
+		System.out.println("daoli");
 		return "info";
 	}
 	
