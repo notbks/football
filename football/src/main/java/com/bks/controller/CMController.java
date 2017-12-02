@@ -2,6 +2,8 @@ package com.bks.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,9 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bks.pojo.Player;
 import com.bks.service.impl.PlayerServiceImpl;
 import com.bks.util.PlayerPage;
-import com.bks.util.PlayersList;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 
 @Controller
 @RequestMapping("")
@@ -36,15 +35,58 @@ public class CMController {
 		return "transition";
 	}
 	
-	@RequestMapping("/transition")
-	public ModelAndView transition(PlayersList allPlayers) {
+	@RequestMapping("/transitionCaptain")
+	public ModelAndView transitionCaptain(String sid, String isCaptain, HttpServletRequest req) {
 		ModelAndView mav =new ModelAndView();
-		for(Player ex:allPlayers.getList()) {
-			playerServiceImpl.update(ex);
+		Player p =playerServiceImpl.findBySid(sid);
+		Player admin =(Player) req.getSession().getAttribute("p");
+		
+		if(isCaptain.equals("是")) {
+			//1：修改属性
+			p.setIsCaptain("否");
+			//2：更新到数据库
+			playerServiceImpl.update(p);
+			//3：如果修改的是登陆着本身，还需要把属性更新到session
+			System.out.println(p.getSid());
+			System.out.println(admin.getSid());
+			if(p.getSid().equals(admin.getSid())) {
+				req.getSession().setAttribute("p", p);
+				System.out.println("是本人修改");
+			}
+			//4：返回到主页，避免权限泄露
+			mav.setViewName("/main");
+			return mav;
+		}else {
+			p.setIsCaptain("是");
+			playerServiceImpl.update(p);
+			mav.setViewName("/main");
+			return mav;
 		}
-		System.out.println("sdfadsf");
-		mav.setViewName("/showAllPlayersController");
-		return mav;
+	}
+	@RequestMapping("/transitionManager")
+	public ModelAndView transitionManager(String sid, String isManager, HttpServletRequest req) {
+		ModelAndView mav =new ModelAndView();
+		Player p =playerServiceImpl.findBySid(sid);
+		Player admin =(Player) req.getSession().getAttribute("p");
+		
+		if(isManager.equals("是")) {
+			//1：修改属性
+			p.setIsManager("否");
+			//2：更新到数据库
+			playerServiceImpl.update(p);
+			//3：如果修改的是登陆着本身，还需要把属性更新到session
+			if(p.getSid()==admin.getSid()) {
+				req.getSession().setAttribute("p", p);	
+			}
+			//4：返回到主页，避免权限泄露
+			mav.setViewName("/main");
+			return mav;
+		}else {
+			p.setIsManager("是");
+			playerServiceImpl.update(p);
+			mav.setViewName("/main");
+			return mav;
+		}
 	}
 	
 	@RequestMapping("/getAllPlayersForTransition")

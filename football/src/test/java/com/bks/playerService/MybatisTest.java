@@ -32,13 +32,18 @@ public class MybatisTest {
 	@Test
 	public void test01() {
 		session =factory.openSession();
+		
+		Player p =new Player();
+		p.setSid("12345678");
+		session.insert("add", p);
+		
 //		Player p =session.selectOne("findBySid","201413030313");
 //		System.out.println(p.getName());
 		
-		List<Player> list =session.selectList("findAllPlayers");
-		for(Player ex:list) {
-			System.out.println(ex.getName());
-		}
+//		List<Player> list =session.selectList("findAllPlayers");
+//		for(Player ex:list) {
+//			System.out.println(ex.getName());
+//		}
 	}
 	
 	@After

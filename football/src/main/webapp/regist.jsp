@@ -50,43 +50,43 @@
 	<table>
 		<tr>
 			<td>学号</td>
-			<td><input type="text" name="sid"><span id="sidspan">...</span></td>
+			<td><input type="text" name="sid"><span id="sidspan"></span></td>
 		</tr>
 		<tr>
 			<td>密码</td>
-			<td><input type="password" name="password"></td>
+			<td><input type="password" name="password" value=""></td>
 		</tr>
 		<tr>
 			<td>姓名</td>
-			<td><input type="text" name="name"></td>
+			<td><input type="text" name="name" value="无名氏"></td>
 		</tr>
 		<tr>
 			<td>专业</td>
-			<td><input type="text" name="majors"></td>
+			<td><input type="text" name="majors" value="0"></td>
 		</tr>
 		<tr>
 			<td>入队年份</td>
-			<td><input type="text" name="joinYear"></td>
+			<td><input type="text" name="joinYear" value="1949"></td>
 		</tr>
 		<tr>
 			<td>球衣号码</td>
-			<td><input type="text" name="number"></td>
+			<td><input type="text" name="number" value="0"></td>
 		</tr>
 		<tr>
 			<td>位置</td>
-			<td><input type="text" name="positon"></td>
+			<td><input type="text" name="positon" value="没机会上场"></td>
 		</tr>
 		<tr>
 			<td>特长</td>
-			<td><input type="text" name="specialty"></td>
+			<td><input type="text" name="specialty" value="懒得写"></td>
 		</tr>
 		<tr>
 			<td>队长？</td>
-			<td><input type="text" name="isCaptain">队长</td>
+			<td><input type="text" name="isCaptain" value="否">队长</td>
 		</tr>
 		<tr>
 			<td>经理？</td>
-			<td><input type="text" name="isManager">经理</td>
+			<td><input type="text" name="isManager" value="否">经理</td>
 		</tr>
 	</table>
 	<input type="submit" value="注册">
