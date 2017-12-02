@@ -9,8 +9,10 @@
 <body>
 <!-- http://localhost:8080/football/ -->
 	nihao &nbsp${p.name }
-	<a href="<c:url value='/login.jsp'/>">注销&nbsp&nbsp</a>
-	<a href="<c:url value='/toInfo'/>">修改个人信息&nbsp&nbsp</a>
+	${message}
+${date}
+	<a href="<c:url value='/login.jsp'/>">注销</a>
+	<a href="<c:url value='/toInfo'/>">修改个人信息</a>
 	
 	
 	<c:if test="${p.isCaptain =='是' || p.isManager =='是'}">
