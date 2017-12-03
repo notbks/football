@@ -11,12 +11,29 @@
 <jsp:include page="head.jsp" flush="true"></jsp:include>
 <hr/>
 
-<a href="<c:url value='/showAllPlayersController'/>">showAllPlayers</a>
-<jsp:include page="players.jsp" flush="true"></jsp:include>
+<jsp:include page="upload.jsp"></jsp:include>
+
+<button onclick="showDiv1();">球员页</button>
+<div id="div1" style="display:none">
+	<a href="<c:url value='/showAllPlayersController'/>">showAllPlayers</a>
+	<jsp:include page="players.jsp" flush="true"></jsp:include>
+</div>
+<script type="text/javascript">
+	function showDiv1(){
+		var div1 =document.getElementById("div1");
+		if (div1.style.display=="none"){
+			div1.style.display="block";
+		}else{
+			div1.style.display="none";
+		}
+	}
+</script>
 <hr/>
 
 <jsp:include page="match.jsp" flush="true"></jsp:include>
+<hr/>
 
+<jsp:include page="showFile.jsp"></jsp:include>
 
 </body>
 </html>
