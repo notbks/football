@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -75,10 +74,9 @@ public class PlayerController {
 		//判断密码对不对
 		if(p.getPassword().equals(form.getPassword())) {
 			//------------------------------------------------------------------登陆成功
-			//
 			req.getSession().setAttribute("p", p);
 			
-			mav.setViewName("main");
+			mav.setViewName("redirect:/showAllPlayersController");
 			return mav;
 		}else {
 			String message ="密码错误";
@@ -114,12 +112,6 @@ public class PlayerController {
 		return "main";
 	}
 	
-//	@RequestMapping("/showAllPlayersController")
-//	public String showAllPlayers(Page page) {
-//		
-//		
-//		return "main";
-//	}
 	@RequestMapping("/showAllPlayersController")
     public ModelAndView showAllPlayers(PlayerPage page){
         ModelAndView mav = new ModelAndView();
@@ -130,7 +122,7 @@ public class PlayerController {
         page.caculateLast(total);
         System.out.println(page.getLast());
         // 放入转发参数
-        mav.addObject("page", page);
+        mav.addObject("playerpage", page);
         mav.addObject("allPlayers", allPlayers);
         // 放入jsp路径
         mav.setViewName("main");
@@ -166,13 +158,10 @@ public class PlayerController {
 							file.transferTo(new File(rootDir, fileName));
 							System.out.println(rootPath);
 						} catch (IllegalStateException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						
 					}
 				}
 			}
@@ -183,5 +172,13 @@ public class PlayerController {
 			return mav;
 		}
 	}
+	
+
+//	@RequestMapping("/showAllPlayersController")
+//	public String showAllPlayers(Page page) {
+//		
+//		
+//		return "main";
+//	}
 	
 }

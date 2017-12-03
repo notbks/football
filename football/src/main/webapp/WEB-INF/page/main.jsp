@@ -14,7 +14,7 @@
 <jsp:include page="upload.jsp"></jsp:include>
 
 <button onclick="showDiv1();">球员页</button>
-<div id="div1" style="display:none">
+<div id="div1" style="display:block">
 	<a href="<c:url value='/showAllPlayersController'/>">showAllPlayers</a>
 	<jsp:include page="players.jsp" flush="true"></jsp:include>
 </div>

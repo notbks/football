@@ -33,21 +33,21 @@
 <div>
 	<a href="?start=0">首	页</a>
 	
-	<c:if test="${page.start !=0}">
-		<a id="shang" href="?start=${page.start-page.count}">上一页</a>
+	<c:if test="${playerpage.start !=0}">
+		<a id="shang" href="?start=${playerpage.start-playerpage.count}">上一页</a>
 	</c:if>
 	
 	<span>当前页</span>
-	<span id="xz">${(page.start/5)+1}</span>
+	<span id="xz">${(playerpage.start/5)+1}</span>
 	
-	<c:if test="${page.start !=page.last}">
-		<a id="xia" href="?start=${page.start+page.count}">下一页</a>
+	<c:if test="${playerpage.start !=playerpage.last}">
+		<a id="xia" href="?start=${playerpage.start+playerpage.count}">下一页</a>
 	</c:if>
 	
-	<a href="?start=${page.last}">尾	页</a>
+	<a href="?start=${playerpage.last}">尾	页</a>
 	
 	<span>共</span>
-	<span>${(page.last/5)+1}</span>
+	<span>${(playerpage.last/5)+1}</span>
 	<span>页</span>
 </div>
 
