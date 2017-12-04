@@ -40,6 +40,9 @@
     <filter-name>characterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+  <!-- 这是之前io流的下载文件配置servlet， 由于在servlet中不知道为什么和jsp一样，无法获取数据，所以注销了 -->
+  <!-- 
   <servlet>
     <description></description>
     <display-name>DownloadServlet</display-name>
@@ -50,4 +53,5 @@
     <servlet-name>DownloadServlet</servlet-name>
     <url-pattern>/DownloadServlet</url-pattern>
   </servlet-mapping>
+   -->
 </web-app>

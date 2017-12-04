@@ -9,9 +9,16 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -94,4 +101,23 @@ public class PFileController {
 		return mav;
 	}
 	
+	@RequestMapping("/DownloadServlet")
+	public ResponseEntity<byte[]> download(HttpServletRequest request) throws IOException {
+		int fid=Integer.valueOf(request.getParameter("fid"));
+		System.out.println(fid);
+		PFile file =pfileServiceImpl.findByFid(fid);
+		String path =file.getFpath();
+		File down =new File(path);
+		String frameName =new String(file.getFname().getBytes("GBK"), "ISO8859-1");
+		/**
+		 * 获取两头一流
+		 * Content-Type
+		 * Content-Disposition
+		 * 流：下载文件数据
+		 */
+		HttpHeaders headers =new HttpHeaders();
+		headers.setContentDispositionFormData("attachment", frameName);
+		headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+		return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(down),headers,HttpStatus.CREATED);
+	}
 }
