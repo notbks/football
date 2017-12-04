@@ -4,17 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+<title>添加比赛</title>
 </head>
 <body>
-<br/>
-${param.message}
-<br/>
-<form action="uploadFile" method="post" enctype="multipart/form-data">
-	选择文件：<input type="file" name="file">
-	<input type="submit" value="上传">
-</form>
-<br/>
-<br/>
+
 </body>
 </html>

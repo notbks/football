@@ -24,11 +24,6 @@ public class CMController {
 		System.out.println("添加比赛信息");
 		return "addMatch";
 	}
-	@RequestMapping("/toAddAnnouncement")
-	public String toAddAnnouncement(Player p) {
-		System.out.println("发布公告");
-		return "addAnnouncement";
-	}
 	@RequestMapping("/toTransition")
 	public String toTransition(Player p) {
 		System.out.println("换届");

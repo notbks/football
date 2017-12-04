@@ -25,7 +25,6 @@
 		document.write("<link rel='stylesheet' type='text/css' href='<c:url value='/css/main.css'/>' />");
 	}
 </script>
-
 </head>
 
 <body>

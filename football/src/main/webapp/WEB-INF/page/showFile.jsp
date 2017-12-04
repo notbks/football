@@ -24,5 +24,7 @@
 	</c:forEach>
 </table>
 
+<jsp:include page="upload.jsp"></jsp:include>
+
 </body>
 </html>

@@ -91,8 +91,11 @@ public class PlayerController {
 	}
 	
 	@RequestMapping("/toInfo")
-	public String toInfo(Player p) {
+	public String toInfo(HttpServletRequest request) {
+		Player p = (Player) request.getSession().getAttribute("p");
 		System.out.println("daoli");
+		System.out.println(p.getSid());
+		if (p.getSid() ==null) return "redirect:/login.jsp";
 		return "info";
 	}
 	

@@ -39,7 +39,7 @@ public class PFileController {
 	
 	@RequestMapping("/uploadFile")
 	public ModelAndView uploadFile(HttpServletRequest request) {
-		ModelAndView mav =new ModelAndView("main"); 
+		ModelAndView mav =new ModelAndView("redirect:/showFiles"); 
 		// @RequestParam("file") MultipartFile file,  
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext()); 
 		//判断有没有文件上传
@@ -77,13 +77,21 @@ public class PFileController {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
+					}else {
+						System.out.println("003");
+						mav.addObject("message", "请选择文件");
+						return mav;
 					}
+				}else {
+					System.out.println("002");
+					mav.addObject("message", "002请选择文件");
+					return mav;
 				}
 			}
 			return mav;
 		}else {
-			System.out.println("0");
-			mav.addObject("message", "请选择文件");
+			System.out.println("001");
+			mav.addObject("message", "001请选择文件");
 			return mav;
 		}
 	}

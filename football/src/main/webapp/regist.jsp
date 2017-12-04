@@ -6,8 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>欢迎注册</title>
+
+<script src="<c:url value='/js/bootstrap.min.js'/>"></script>
+<link href="<c:url value='/css/bootstrap.min.css'/>" rel="stylesheet" type="text/css">
+<script src="<c:url value='/js/jquery.min.js'/>"></script>
+
 </head>
 <body>
+
+
 <script type="text/javascript">
 
 	//在网页加载完后运行这个方法,防止元素读取不到
@@ -61,7 +68,7 @@
 	};
 </script>
 <form action="registController" method="post">
-	<table>
+	<table class="table">
 		<tr>
 			<td>学号</td>
 			<td><input type="text" name="sid"><span id="sidspan"></span></td>
