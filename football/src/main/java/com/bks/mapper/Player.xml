@@ -16,7 +16,17 @@
     	
     	<update id="update" parameterType="Player">
     		UPDATE player_ 
-    		SET name=#{name},password=#{password},majors=#{majors},joinYear=#{joinYear},number=#{number},position=#{position},specialty=#{specialty},isCaptain=#{isCaptain},isManager=#{isManager}
+    		<set>
+    			<if test="name!=null">name=#{name},</if>
+    			<if test="password!=null">password=#{password},</if>
+    			<if test="majors!=null">majors=#{majors},</if>
+    			<if test="joinYear!=null">joinYear=#{joinYear},</if>
+    			<if test="number!=null">number=#{number},</if>
+    			<if test="position!=null">position=#{position},</if>
+    			<if test="specialty!=null">specialty=#{specialty},</if>
+    			<if test="isCaptain!=null">isCaptain=#{isCaptain},</if>
+    			<if test="isManager!=null">isManager=#{isManager}</if>
+    		</set>
     		WHERE sid=#{sid}
     	</update>
     	

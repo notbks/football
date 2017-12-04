@@ -11,8 +11,6 @@
 <jsp:include page="head.jsp" flush="true"></jsp:include>
 <hr/>
 
-<jsp:include page="upload.jsp"></jsp:include>
-
 <button onclick="showDiv1();">球员页</button>
 <div id="div1" style="display:block">
 	<a href="<c:url value='/showAllPlayersController'/>">showAllPlayers</a>

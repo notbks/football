@@ -6,6 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-
+比赛模块和球员模块类似，懒得写了
 </body>
 </html>

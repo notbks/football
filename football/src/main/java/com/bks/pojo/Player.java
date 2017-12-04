@@ -98,5 +98,4 @@ public class Player {
 		this.joinYear = joinYear;
 	}
 	
-	
 }

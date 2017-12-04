@@ -46,6 +46,20 @@
 		};
 	};
 </script>
+<script type="text/javascript">
+	window.onload =function(){
+		var name =document.getElementsByName("name")[0];
+		var sub =document.getElementById("sub");
+		
+		name.onblur =function(){
+			if(name.value ==""){
+				sub.style.display ="none";
+			}else{
+				sub.style.display ="block";
+			}
+		};	
+	};
+</script>
 <form action="registController" method="post">
 	<table>
 		<tr>
@@ -89,7 +103,7 @@
 			<td><input type="text" name="isManager" value="否">经理</td>
 		</tr>
 	</table>
-	<input type="submit" value="注册">
+	<input type="submit" id="sub" style="display:block" value="注册">
 </form>
 </body>
 </html>
