@@ -70,7 +70,7 @@ public class PlayerController {
 			//------------------------------------------------------------------登陆成功
 			req.getSession().setAttribute("p", p);
 			
-			mav.setViewName("redirect:/showAllPlayersController");
+			mav.setViewName("main");
 			return mav;
 		}else {
 			String message ="密码错误";
@@ -96,6 +96,11 @@ public class PlayerController {
 		return "info";
 	}
 	
+	@RequestMapping("/toMatch")
+	public String toMatch() {
+		System.out.println("比赛");
+		return "match";
+	}
 	
 	@RequestMapping("/infoController")
 	public String updateInfo(Player form, HttpServletRequest req) {
@@ -119,7 +124,7 @@ public class PlayerController {
         mav.addObject("playerpage", page);
         mav.addObject("allPlayers", allPlayers);
         // 放入jsp路径
-        mav.setViewName("main");
+        mav.setViewName("players");
         return mav;
     }
 	

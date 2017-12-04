@@ -1,19 +1,14 @@
 package com.bks.controller;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -95,7 +90,7 @@ public class PFileController {
 	
 	@RequestMapping("/showFiles")
 	public ModelAndView showFiles() {
-		ModelAndView mav =new ModelAndView("main");
+		ModelAndView mav =new ModelAndView("showFile");
 		List<PFile> list =pfileServiceImpl.findAllFiles();
 		mav.addObject("files", list);
 		return mav;

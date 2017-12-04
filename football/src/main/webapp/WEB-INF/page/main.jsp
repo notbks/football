@@ -6,32 +6,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>主页</title>
+<style type="text/css">
+	div{
+		color:red;
+	}
+	input{
+		width:500px;
+		height:100px;
+	}
+</style>
+
+<script type="text/javascript">
+	if("${p.isCaptain}" =="是"){
+		document.write("<link rel='stylesheet' type='text/css' href='<c:url value='/css/captain.css'/>' />");
+	}else if("isManager" =="是"){
+		document.write("<link rel='stylesheet' type='text/css' href='<c:url value='/css/manager.css'/>' />");
+	}else{
+		document.write("<link rel='stylesheet' type='text/css' href='<c:url value='/css/main.css'/>' />");
+	}
+</script>
+
 </head>
+
 <body>
+
+<div>嘿嘿嘿</div>
 <jsp:include page="head.jsp" flush="true"></jsp:include>
 <hr/>
 
-<button onclick="showDiv1();">球员页</button>
-<div id="div1" style="display:block">
-	<a href="<c:url value='/showAllPlayersController'/>">showAllPlayers</a>
-	<jsp:include page="players.jsp" flush="true"></jsp:include>
+<div id="buttons" align="center">
+	<input type="button" onclick="window.open('<c:url value='/showAllPlayersController'/>')" value="球员页"><br/>
+	<input type="button" onclick="window.open('<c:url value='/showFiles'/>')" value="所有文件"><br/>
+	<input type="button" onclick="window.open('<c:url value='/toMatch'/>')" value="球赛信息">
 </div>
-<script type="text/javascript">
-	function showDiv1(){
-		var div1 =document.getElementById("div1");
-		if (div1.style.display=="none"){
-			div1.style.display="block";
-		}else{
-			div1.style.display="none";
-		}
-	}
-</script>
-<hr/>
-
-<jsp:include page="match.jsp" flush="true"></jsp:include>
-<hr/>
-
-<jsp:include page="showFile.jsp"></jsp:include>
 
 </body>
 </html>

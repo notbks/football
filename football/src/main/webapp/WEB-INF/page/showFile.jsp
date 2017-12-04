@@ -5,9 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>所有文件</title>
 </head>
 <body>
-<a href="<c:url value='/showFiles'/>">显示所有文件</a>
+
 <table>
 	<tr>
 		<th>编号</th>

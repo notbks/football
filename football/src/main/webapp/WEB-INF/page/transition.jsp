@@ -8,7 +8,6 @@
 <title>再见，队长！</title>
 </head>
 <body>
-<a href="<c:url value='/getAllPlayersForTransition'/>">查看所有球员</a>
 
 <table>
 	<tr>

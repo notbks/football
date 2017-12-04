@@ -32,7 +32,7 @@ public class CMController {
 	@RequestMapping("/toTransition")
 	public String toTransition(Player p) {
 		System.out.println("换届");
-		return "transition";
+		return "redirect:/getAllPlayersForTransition";
 	}
 	
 	@RequestMapping("/transitionCaptain")
