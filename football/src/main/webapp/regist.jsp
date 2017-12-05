@@ -11,14 +11,29 @@
 <link href="<c:url value='/css/bootstrap.min.css'/>" rel="stylesheet" type="text/css">
 <script src="<c:url value='/js/jquery.min.js'/>"></script>
 
-</head>
-<body>
-
-
 <script type="text/javascript">
 
 	//在网页加载完后运行这个方法,防止元素读取不到
+	//结构windows.onload=function(){ function(){a}, function(){b}};
+	//分开写进onload()的话，前一个function失效
 	window.onload =function(){
+		a();
+		b();
+	};
+	
+	function a(){
+		var name =document.getElementsByName("name")[0];
+		var sub =document.getElementById("sub");
+		
+		name.onblur =function(){
+			if(name.value ==""){
+				sub.style.display ="none";
+			}else{
+				sub.style.display ="block";
+			}
+		};	
+	};
+	function b(){
 		//根据name获取对象text
 		var sidText =document.getElementsByName("sid")[0];
 		//监听sidText 当它失去焦点是执行
@@ -52,21 +67,12 @@
 			};
 		};
 	};
+
 </script>
-<script type="text/javascript">
-	window.onload =function(){
-		var name =document.getElementsByName("name")[0];
-		var sub =document.getElementById("sub");
-		
-		name.onblur =function(){
-			if(name.value ==""){
-				sub.style.display ="none";
-			}else{
-				sub.style.display ="block";
-			}
-		};	
-	};
-</script>
+
+</head>
+<body>
+
 <form action="registController" method="post">
 	<table class="table">
 		<tr>
