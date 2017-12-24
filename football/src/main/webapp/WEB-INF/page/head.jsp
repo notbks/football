@@ -7,7 +7,7 @@
     <meta charset="UTF-8" http-equiv="content-type" content="text/html">
 </head>
 <body>
-<!-- http://localhost:8080/football/ -->
+
 	nihao &nbsp${p.name }
 
 ${date}
