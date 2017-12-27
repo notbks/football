@@ -17,11 +17,11 @@
 	    var pwd = $("#password").val(); //获取登陆密码信息  
 	    var checked = $("#checkbox").prop("checked");//获取“是否记住密码”复选框
 	    
-	    if(checked == true){ //判断是否选中了“记住密码”复选框  
+	    if(checked){ //判断是否选中了“记住密码”复选框  
 	       $.cookie("sid",sid);//调用jquery.cookie.js中的方法设置cookie中的用户名  
 	       $.cookie("pwd",$.base64.encode(pwd));//调用jquery.cookie.js中的方法设置cookie中的登陆密码，并使用base64（jquery.base64.js）进行加密  
 	    }else{
-	    	//加了下面这句，密码就无法解密，不知道为什么
+	    	//密码莫名其妙无法解密
 	       //$.cookie("sid",sid);	
 	       $.cookie("pwd", null);   
 	    }
@@ -30,14 +30,16 @@
 	//获取cookie 
 	function getCookie(){  
 	    var sid = $.cookie("sid"); //获取cookie中的用户名  
-	    var pwd = $.cookie("pwd"); //获取cookie中的登陆密码  
-	    if(pwd!=null){	//密码存在的话把“记住用户名和密码”复选框勾选住  
-	       $("#checkbox").attr("checked","true");  
+	    var pwd = $.cookie("pwd"); //获取cookie中 加密后的登陆密码  
+	    
+	    //注意这里的null是字符串
+	    if(pwd!="null"){				//密码存在的话把“记住用户名和密码”复选框勾选住  
+	       $("#checkbox").attr("checked","checked");
 	    }  
-	    if(sid){//用户名存在的话把用户名填充到用户名文本框  
+	    if(sid){					//用户名存在的话把用户名填充到用户名文本框  
 	       $("#sid").val(sid);  
 	    }  
-	    if(pwd!=null){//密码存在的话把密码填充到密码文本框  
+	    if(pwd!="null"){//密码存在的话把密码填充到密码文本框
 	       $("#password").val($.base64.decode(pwd)); 
 	    }  
 	}
@@ -57,8 +59,8 @@
 			<td><input type="password" id="password" name="password"></td>
 		</tr>
 	</table>
-	<input type="checkbox" id="checkbox" name="checkbox" onclick="setCookie();">记住我<br/>
-	<input type="submit" value="登陆">
+	<input type="checkbox" id="checkbox" name="checkbox">记住我<br/>
+	<input type="submit" onclick="setCookie();" value="登陆">
 
 </form>
 <a href="<c:url value='/regist.jsp'/>">还没账号？点击注册</a><br/>
