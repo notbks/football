@@ -17,13 +17,15 @@
 </style>
 
 <script type="text/javascript">
+
 	if("${p.isCaptain}" =="是"){
-		document.write("<link rel='stylesheet' type='text/css' href='<c:url value='/css/captain.css'/>' />");
-	}else if("isManager" =="是"){
-		document.write("<link rel='stylesheet' type='text/css' href='<c:url value='/css/manager.css'/>' />");
+		document.write("<link rel='stylesheet' type='text/css' href='/football/css/captain.css' />");
+	}else if("${p.isManager}" =="是"){
+		document.write("<link rel='stylesheet' type='text/css' href='/football/css/manager.css' />");
 	}else{
-		document.write("<link rel='stylesheet' type='text/css' href='<c:url value='/css/main.css'/>' />");
+		document.write("<link rel='stylesheet' type='text/css' href='/football/css/main.css' />");
 	}
+
 </script>
 </head>
 

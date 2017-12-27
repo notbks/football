@@ -10,8 +10,7 @@
 
 	nihao &nbsp${p.name }
 
-${date}
-	<a href="<c:url value='/login.jsp'/>">注销</a>
+	<a href="<c:url value='/logout'/>">注销</a>
 	<a href="<c:url value='/toInfo'/>">修改个人信息</a>
 	
 	<c:if test="${p.isCaptain =='是' || p.isManager =='是'}">
@@ -19,6 +18,8 @@ ${date}
 		<a href="<c:url value='/toAddAnnouncement'/>">发布公告</a>
 		<a href="<c:url value='/toTransition'/>">换届</a>
 	</c:if>
-	
+	<br/>
+	<hr/>
+	${date}
 </body>
 </html>

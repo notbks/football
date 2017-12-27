@@ -82,6 +82,12 @@ public class PlayerController {
 		}
 	}
 	
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest req) {
+		req.getSession().removeAttribute("p");
+		return "redirect:/login.jsp";
+	}
+	
 	@RequestMapping("/registController")
 	public ModelAndView regist(Player form, HttpServletRequest req) {
 		ModelAndView mav =new ModelAndView("main");
