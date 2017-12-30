@@ -38,7 +38,7 @@ public class MybatisTest {
 		
 		PFile file =session.selectOne("findByFid", 3);
 		System.out.println(file.getFid());
-		
+		System.out.println(file);
 		
 //		List<PFile> list =session.selectList("findAllFiles");
 //		for(PFile ex:list) {

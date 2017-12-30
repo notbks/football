@@ -36,4 +36,15 @@ public class CheckController {
 			}
 		}
 	}
+	
+	@RequestMapping("/jsonTest")
+	public void jsonTest(HttpServletRequest req, HttpServletResponse res) {
+		System.out.println(req.getParameter("name")+req.getParameter("age"));
+		try {
+			res.getWriter().print(true);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

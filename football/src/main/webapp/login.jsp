@@ -21,8 +21,7 @@
 	       $.cookie("sid",sid);//调用jquery.cookie.js中的方法设置cookie中的用户名  
 	       $.cookie("pwd",$.base64.encode(pwd));//调用jquery.cookie.js中的方法设置cookie中的登陆密码，并使用base64（jquery.base64.js）进行加密  
 	    }else{
-	    	//密码莫名其妙无法解密
-	       //$.cookie("sid",sid);	
+		   $.cookie("sid",sid);		//如果换个用户，没有勾选记住我，下次这个用户登陆时，显示的还是上一个用户的用户名
 	       $.cookie("pwd", null);   
 	    }
 	}   
