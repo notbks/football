@@ -32,15 +32,15 @@ public class PlayerServiceImpl implements PlayerService{
 	}
 
 	public List<Player> findAllPlayers() {
-			return playerMapper.findAllPlayers();
+		return playerMapper.findAllPlayers();
 	}
 
 	public int count() {
-		try {
-			return playerMapper.count();
-		}catch(Exception e) {
-			return 0;
-		}
+		return playerMapper.count();
+	}
+	
+	public List<Player> search(String sid, String name, int number, String position, String isCaptain, String isManager){
+		return playerMapper.search(sid, name, number, position, isCaptain, isManager);
 	}
 
 }

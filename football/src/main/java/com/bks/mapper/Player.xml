@@ -21,7 +21,7 @@
     			<if test="password!=null">password=#{password},</if>
     			<if test="majors!=null">majors=#{majors},</if>
     			<if test="joinYear!=null">joinYear=#{joinYear},</if>
-    			<if test="number!=null">number=#{number},</if>
+    			<if test="number!=-1">number=#{number},</if>
     			<if test="position!=null">position=#{position},</if>
     			<if test="specialty!=null">specialty=#{specialty},</if>
     			<if test="isCaptain!=null">isCaptain=#{isCaptain},</if>
@@ -29,6 +29,19 @@
     		</set>
     		WHERE sid=#{sid}
     	</update>
+    	
+    	<select id="search" resultType="Player">
+    		SELECT *
+    		FROM player_
+    		<where>
+    			<if test="sid!=null">AND sid LIKE CONCAT("%",#{sid},"%")</if>
+    			<if test="name!=null">AND name LIKE CONCAT("%",#{name},"%")</if>
+    			<if test="number!=-1">AND number LIKE CONCAT("%",#{number},"%")</if>
+    			<if test="position!=null">AND position LIKE CONCAT("%",#{position},"%")</if>
+    			<if test="isCaptain!=null">AND isCaptain=#{isCaptain}</if>
+    			<if test="isManager!=null">AND isManager=#{isManager}</if>
+    		</where>
+    	</select>
     	
     	<select id="findBySid" parameterType="java.lang.String" resultType="Player">
     		SELECT *

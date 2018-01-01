@@ -12,6 +12,7 @@
 
 	<a href="<c:url value='/logout'/>">注销</a>
 	<a href="<c:url value='/toInfo'/>">修改个人信息</a>
+	<a href="<c:url value='/toSearch'/>">搜索全部</a>
 	
 	<c:if test="${p.isCaptain =='是' || p.isManager =='是'}">
 		<a href="<c:url value='/toAddMatch'/>">添加比赛信息</a>

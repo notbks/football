@@ -16,4 +16,6 @@ public interface PlayerService {
     List<Player> findAllPlayers();
      
     int count();
+    
+    List<Player> search(String sid, String name, int number, String position, String isCaptain, String isManager);
 }

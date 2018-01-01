@@ -111,6 +111,12 @@ public class PlayerController {
 		return "match";
 	}
 	
+	@RequestMapping("/toSearch")
+	public String toSearch() {
+		System.out.println("搜索");
+		return "search";
+	}
+	
 	@RequestMapping("/infoController")
 	public String updateInfo(Player form, HttpServletRequest req) {
 		playerServiceImpl.update(form);
